@@ -1,0 +1,11 @@
+﻿@model CustomerFormViewModel
+
+@{
+    ViewBag.Title = "Modification Client";
+}
+
+<a href="@Url.Action("Index")"><i class="back-btn fa fa-arrow-circle-left"></i></a>
+<h4>Modifier Client (@Model.Reference)</h4>
+<hr />
+
+@await Html.PartialAsync("Partials/_Form", Model)

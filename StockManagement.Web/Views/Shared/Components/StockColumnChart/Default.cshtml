@@ -1,0 +1,24 @@
+﻿@using Newtonsoft.Json
+@model IEnumerable<ProductStockViewModel>
+
+<h4 class="text-center">Quantité en stock des 10 articles les plus vendus.</h4>
+<canvas id="stockColumnsChart"></canvas>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const values = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+    const ctx = document.getElementById('stockColumnsChart');
+
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Quantité'],
+            datasets: values.map(v => ({
+                label: v.Name,
+                data: [v.Stock]
+            }))
+        }
+    });
+});
+</script>

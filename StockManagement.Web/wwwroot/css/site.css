@@ -1,0 +1,36 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+h6, h5, h4, h3, h2, h1, a, p, div, th, td {
+    color: #2e6da4;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.back-btn {
+    font-size: 36px;
+}
+
+.bg-primary, .btn-primary {
+    background-color: #337ab7 !important;
+    border-color: #337ab7;
+}
+
+.page-item {
+    .page-link {
+        color: #337ab7;
+    }
+    &.active {
+        .page-link {
+            color: white;
+            background-color: #337ab7;
+        }
+    }
+}

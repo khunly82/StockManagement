@@ -1,0 +1,41 @@
+﻿@model IndexViewModelBase
+
+@if(Model.TotalItems > Model.ItemsPerPage)
+{
+    int startRange = Model.Page <= 5 ? 1 : Model.Page - 5;
+    int endRange = 10 + startRange;
+    double pageMax = Math.Ceiling(Model.TotalItems / (double)Model.ItemsPerPage);
+
+    <nav>
+        <ul class="pagination">
+            @if (Model.Page != 1)
+            {
+                <li class="page-item"><a asp-route-page="@(Model.Page - 1)" class="page-link">Previous</a></li>
+            }
+
+            @for (int i = startRange; i <= endRange; i++)
+            {
+                @if (i <= pageMax)
+                {
+                    @if (i == Model.Page)
+                    {
+                        <li class="page-item active">
+                            <a class="page-link" href="#" aria-current="page">@i</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-route-page="@i">@i</a>
+                        </li>
+
+                    }
+                }
+            }
+            @if (Model.Page != pageMax)
+            {
+                <li class="page-item"><a class="page-link" asp-route-page="@(Model.Page + 1)">Next</a></li>
+            }
+        </ul>
+    </nav>
+}

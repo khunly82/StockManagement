@@ -1,0 +1,24 @@
+﻿@using Newtonsoft.Json
+@model IEnumerable<DateStatsViewModel>
+
+<h4 class="text-center">Ventes par jours.</h4>
+<canvas id="amountsLineChart"></canvas>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const values = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+    const ctx = document.getElementById('amountsLineChart');
+
+    const chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: values.map(v => v.Date),
+            datasets: [
+                { label: 'Montant', data: values.map(v => v.Amount) },
+                { label: 'Nombre de Commandes', data: values.map(v => v.Count) },
+            ]
+        }
+    });
+});
+</script>

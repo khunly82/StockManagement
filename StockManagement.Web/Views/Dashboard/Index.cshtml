@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+    int[] days = [10, 30, 50, 100];
+}
+
+<div class="container-fluid">
+    <div class="row mb-3">
+        <div class="offset-6 col-6 offset-lg-9 col-lg-3">
+            <form method="get" class="d-flex gap-2">
+                <select name="days" class="form-select">
+                    @foreach(int d in days)
+                    {
+                        @if(d == ViewBag.Days) { <option selected value="@d">@d derniers jours</option> }
+                        else{ <option value="@d">@d jours</option> }
+                    }
+                </select>
+                <button class="btn btn-primary">Modifier</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <vc:stock-column-chart days="ViewBag.Days"></vc:stock-column-chart>
+        </div>
+        <div class="col-12 col-lg-6">
+            <vc:sales-line-chart days="ViewBag.Days"></vc:sales-line-chart>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+}

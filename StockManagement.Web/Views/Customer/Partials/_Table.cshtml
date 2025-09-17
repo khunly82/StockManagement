@@ -1,0 +1,41 @@
+﻿@model IEnumerable<CustomerViewModel>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Reference)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Reference)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    <a class="btn btn-xs btn-success btn-sm" href="@Url.Action("Edit", new { id = item.Reference })"><i class="fa fa-edit"></i></a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="btn btn-xs btn-danger delete-btn btn-sm" href="@Url.Action("Delete", new { id = item.Reference })"><i class="fa fa-trash"></i></a>
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+</div>
