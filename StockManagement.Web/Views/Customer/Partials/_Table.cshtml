@@ -32,7 +32,7 @@
                     <a class="btn btn-xs btn-success btn-sm" href="@Url.Action("Edit", new { id = item.Reference })"><i class="fa fa-edit"></i></a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a class="btn btn-xs btn-danger delete-btn btn-sm" href="@Url.Action("Delete", new { id = item.Reference })"><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-xs btn-danger btn-sm" confirmation-required href="@Url.Action("Delete", new { id = item.Reference })"><i class="fa fa-trash"></i></a>
                     }
                 </td>
             </tr>

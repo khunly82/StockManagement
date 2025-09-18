@@ -31,6 +31,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bs-confirm-box.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
@@ -40,6 +41,20 @@
         $('#toggle-menu').on('click', () => {
             $('nav').toggleClass('open');
         });
+
+        const deleteBtns = document.querySelectorAll('[confirmation-required]');
+        for (let btn of deleteBtns) {
+            btn.addEventListener('click', e => {
+                e.preventDefault();
+                confirmBox.show({
+                    title: 'Demande de confirmation.',
+                    content: `Êtes vous sûr de vouloir supprimer ce client?`,
+                    onConfirm: () => {
+                        window.location.href = btn.href;
+                    }
+                });
+            });
+        }
     </script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

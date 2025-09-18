@@ -46,7 +46,7 @@ namespace StockManagement.Web.Controllers
             { 
                 return NotFound();
             }
-            return Redirect("Index");
+            return RedirectToAction("Index");
         }
     }
 }

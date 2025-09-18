@@ -31,25 +31,3 @@ else
 {
     <p>Aucun résultat</p>
 }
-
-@section scripts {
-    <script>
-        const deleteBtns = document.querySelectorAll('.delete-btn');
-        for (let btn of deleteBtns) {
-            btn.addEventListener('click', e => {
-                e.preventDefault();
-                confirmBox.show({
-                    title: 'Demande de confirmation.',
-                    content: `Êtes vous sûr de vouloir supprimer ce client?`,
-                    onConfirm: () => {
-                        // besoin de supprimer l'event des icons pour être sûr 
-                        // que e.target soit bien le lien "<a>"
-                        // voir css 
-                        // ex: delete-btn > i { pointer-event: none }
-                        window.location.href = e.target.getAttribute('href');
-                    }
-                });
-            });
-        }
-    </script>
-}
