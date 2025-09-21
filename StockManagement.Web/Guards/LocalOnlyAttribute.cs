@@ -11,13 +11,10 @@ namespace StockManagement.Web.Guards
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             IPAddress? remoteIp = context.HttpContext.Connection.RemoteIpAddress;
-            context.HttpContext.User.AddIdentity(new ClaimsIdentity([
-                    new Claim(ClaimTypes.Role, "Server")
-            ], "Basic"));
 
             if (remoteIp == null || !IPAddress.IsLoopback(remoteIp))
             {
-                context.Result = new StatusCodeResult(403); // Interdit
+                context.Result = new StatusCodeResult(403);
             }
         }
     }
