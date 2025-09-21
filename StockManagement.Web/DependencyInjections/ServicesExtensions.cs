@@ -29,14 +29,6 @@ namespace StockManagement.Web.DependencyInjections
 
         public static IServiceCollection AddAndConfigureAuthentication(this IServiceCollection services) 
         {
-            services.AddDistributedMemoryCache();
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
-
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
                     options.LoginPath = "/Security/Auth/Login";
