@@ -4,6 +4,6 @@ namespace StockManagement.Application.Interfaces
 {
     public interface IProductService
     {
-        List<Product> GetStockNMostSoldProductsLastNDays(int nbOfProducts, int days);
+        List<Product> GetStockOfNMostSoldProductsLastNDays(int nbOfProducts, int days);
     }
 }

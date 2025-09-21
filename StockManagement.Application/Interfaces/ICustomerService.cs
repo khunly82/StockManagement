@@ -8,5 +8,7 @@ namespace StockManagement.Application.Interfaces
         void Delete(string id);
         Customer? Find(string id);
         List<Customer> FindWithFilters(string? search, int currentPage, int itemsPerPage);
+        Customer Create(Customer customer);
+        Customer Update(Customer customer);
     }
 }

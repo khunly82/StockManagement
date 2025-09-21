@@ -9,7 +9,7 @@ namespace StockManagement.Web.Components
     {
         public IViewComponentResult Invoke(int days)
         {
-            var products = _productService.GetStockNMostSoldProductsLastNDays(10, days)
+            var products = _productService.GetStockOfNMostSoldProductsLastNDays(10, days)
                 .Select(p => new ProductStockViewModel(p));
             return View(products);
         }

@@ -2,37 +2,31 @@
 
 <div class="table-responsive">
 
-    <table class="table table-bordered table-striped">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Reference)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
+    <table class="table table-bordered">
+        <tr class="table-primary">
+            <th>Référence</th>
+            <th>Nom</th>
+            <th>Prénom</th>
             <th></th>
         </tr>
 
         @foreach (var item in Model)
         {
-            <tr>
+            <tr class="@(!item.IsActive ? "table-secondary" : "")">
+                <td>@item.Reference</td>
+                <td>@item.LastName</td>
+                <td>@item.FirstName</td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Reference)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    <a class="btn btn-xs btn-success btn-sm" href="@Url.Action("Edit", new { id = item.Reference })"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-xs btn-success btn-sm" 
+                       asp-action="Edit" 
+                       asp-route-id="@item.Reference"
+                    ><i class="fa fa-edit"></i></a>
                     @if (User.IsInRole("Admin"))
                     {
-                        <a class="btn btn-xs btn-danger btn-sm" confirmation-required href="@Url.Action("Delete", new { id = item.Reference })"><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-xs btn-danger btn-sm" confirmation-required 
+                           asp-action="Delete"
+                           asp-route-id="@item.Reference"
+                        ><i class="fa fa-trash"></i></a>
                     }
                 </td>
             </tr>

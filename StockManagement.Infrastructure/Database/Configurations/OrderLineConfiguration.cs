@@ -14,6 +14,8 @@ namespace StockManagement.Infrastructure.Database.Configurations
 
             builder.HasOne(ol => ol.Order).WithMany(o => o.OrderLines).HasForeignKey(o => o.OrderRef);
             builder.HasOne(ol => ol.Product).WithMany(p => p.OrderLines).HasForeignKey(o => o.ProductRef);
+
+            builder.HasQueryFilter(ol => !ol.Product.IsDeleted);
         }
     }
 }

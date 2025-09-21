@@ -15,14 +15,17 @@ namespace StockManagement.Infrastructure.Database.Configurations
             builder.Property(c => c.FirstName).IsUnicode(false).HasMaxLength(50);
             builder.Property(c => c.Email).IsUnicode(false).HasMaxLength(255);
             builder.Property(c => c.Phone).IsUnicode(false).HasMaxLength(25);
-            builder.Property(c => c.Deleted).IsRequired();
+            builder.Property(c => c.IsDeleted).IsRequired();
 
             builder.HasIndex(c => c.Email).IsUnique();
 
             builder.HasData(GetCreateCustomers());
+
+            builder.HasQueryFilter(c => !c.IsDeleted);
+
         }
 
-        private IEnumerable<Customer> GetCreateCustomers()
+        private static IEnumerable<Customer> GetCreateCustomers()
         {
             yield return new Customer
             {

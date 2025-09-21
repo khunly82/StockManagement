@@ -15,10 +15,13 @@ namespace StockManagement.Infrastructure.Database.Configurations
             builder.Property(p => p.Description).IsUnicode(true);
             builder.Property(p => p.Price).HasColumnType("MONEY");
 
+            builder.HasQueryFilter(e => !e.IsDeleted);
+
             builder.HasData(CreateProducts());
+
         }
 
-        private IEnumerable<Product> CreateProducts()
+        private static IEnumerable<Product> CreateProducts()
         {
             yield return new Product { Reference = "COCA0001", Name = "Coca Cola 33cl", Description = "CAN. 24X33cl", Price = 16.8m, Stock = 1000 };
             yield return new Product { Reference = "COCA0002", Name = "Coca Cola 50cl", Description = "CAN. 24X50cl", Price = 19.92m, Stock = 1000 };

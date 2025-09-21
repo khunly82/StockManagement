@@ -16,6 +16,7 @@ namespace StockManagement.Web.Models
             FirstName = customer.FirstName;
             Email = customer.Email;
             Phone = customer.Phone;
+            IsActive = customer.IsActive;
         }
 
         public string? Reference { get; init; }
@@ -31,6 +32,6 @@ namespace StockManagement.Web.Models
 
         public string? Phone { get; set; }
 
-        public bool Deleted { get; set; }
+        public bool IsActive { get; set; } = true;
     }
 }

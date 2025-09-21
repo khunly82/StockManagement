@@ -19,8 +19,20 @@ body {
 }
 
 .bg-primary, .btn-primary {
-    background-color: #337ab7 !important;
+    background-color: #337ab7!important;
     border-color: #337ab7;
+}
+
+table tr {
+    height: 3rem;
+    vertical-align: middle;
+}
+
+.table-primary {
+    > td, th {
+        background-color: #337ab7 !important;
+        color: white;
+    }
 }
 
 .page-item {

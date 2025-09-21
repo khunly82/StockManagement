@@ -12,7 +12,7 @@ using StockManagement.Infrastructure.Database;
 namespace StockManagement.Infrastructure.Database.Migrations
 {
     [DbContext(typeof(StockContext))]
-    [Migration("20250916210521_InitDB")]
+    [Migration("20250918214427_InitDB")]
     partial class InitDB
     {
         /// <inheritdoc />
@@ -33,8 +33,8 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         .HasColumnType("char(8)")
                         .IsFixedLength();
 
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -48,6 +48,12 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -58,6 +64,9 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         .HasMaxLength(25)
                         .IsUnicode(false)
                         .HasColumnType("varchar(25)");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Reference");
 
@@ -70,98 +79,134 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         new
                         {
                             Reference = "LYKH0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "lykhun@gmail.com",
                             FirstName = "Khun",
-                            LastName = "Ly"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Ly",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "LYPI0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "piv.ly@bstorm.be",
                             FirstName = "Piv",
-                            LastName = "Ly"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Ly",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "PEMI0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "michael.person@cognitic.be",
                             FirstName = "Mike",
-                            LastName = "Person"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Person",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "MOTH0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "tierry.morre@cognitic.be",
                             FirstName = "Thierry",
-                            LastName = "Morre"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Morre",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "COJU0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "julien.coppin@bstorm.be",
                             FirstName = "Julien",
-                            LastName = "Coppin"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Coppin",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "COJU0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "julie@courtois.be",
                             FirstName = "Julie",
-                            LastName = "Courtois"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Courtois",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "STAU0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "aurelien.strimelle@bstorm.be",
                             FirstName = "Aurélien",
-                            LastName = "Strimelle"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Strimelle",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "OVFL0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "flavian.ovyn@bstorm.be",
                             FirstName = "Flavian",
-                            LastName = "Ovyn"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Ovyn",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "LAST0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "steve.laurent@bstorm.be",
                             FirstName = "Steve",
-                            LastName = "Laurent"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Laurent",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "BALO0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "loic.baudoux@bstorm.be",
                             FirstName = "Loïc",
-                            LastName = "Baudoux"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Baudoux",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "PEMI0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "michel@pedro.be",
                             FirstName = "Michel",
-                            LastName = "Pedro"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Pedro",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "COJU0003",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "jules@constant.be",
                             FirstName = "Jules",
-                            LastName = "Constant"
+                            IsActive = true,
+                            IsDeleted = false,
+                            LastName = "Constant",
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -172,6 +217,9 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         .IsUnicode(false)
                         .HasColumnType("char(10)")
                         .IsFixedLength();
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerRef")
                         .IsRequired()
@@ -185,6 +233,9 @@ namespace StockManagement.Infrastructure.Database.Migrations
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("Reference");
 
@@ -238,13 +289,19 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         .HasColumnType("char(8)")
                         .IsFixedLength();
 
-                    b.Property<bool>("Deleted")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .IsUnicode(true)
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -258,6 +315,9 @@ namespace StockManagement.Infrastructure.Database.Migrations
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("UpdateDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Reference");
 
                     b.ToTable("Products");
@@ -266,182 +326,242 @@ namespace StockManagement.Infrastructure.Database.Migrations
                         new
                         {
                             Reference = "COCA0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Coca Cola 33cl",
                             Price = 16.8m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "COCA0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Coca Cola 50cl",
                             Price = 19.92m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "COCA0003",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 6X1l",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Coca Cola 1l",
                             Price = 10.92m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "FANT0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Fanta Orange 33cl",
                             Price = 16.8m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "FANT0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Fanta Citron 33cl",
                             Price = 16.8m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "FANT0003",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Fanta Orange 50cl",
                             Price = 16.8m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "FANT0004",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Fanta Citron 50cl",
                             Price = 19.92m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "JUPI0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Jupiler 33cl",
                             Price = 29.04m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "JUPI0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Jupiler 50cl",
                             Price = 35.52m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "CARL0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Carlsberg 33cl",
                             Price = 32.4m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "CHIM0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Chimay Bleue 33cl",
                             Price = 45.6m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "CHIM0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Chimay Rouge 33cl",
                             Price = 45.6m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "CHIM0003",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 24X33cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Chimay Blanche 33cl",
                             Price = 30.24m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "NALU0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "CAN. 24X25cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Nalu Vert 25cl",
                             Price = 16.8m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "EVIA0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 8X1l",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Evian 1l",
                             Price = 8.96m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "EVIA0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Evian 50cl",
                             Price = 5.6m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "VITT0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 8X1l",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Vittel 1l",
                             Price = 8.72m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "VITT0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 24X50cl",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Vittel 50cl",
                             Price = 5.44m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "OASI0001",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 6X2l",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Oasis Orange 2l",
                             Price = 13.44m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Reference = "OASI0002",
-                            Deleted = false,
+                            CreateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "BOUT. 6X2l",
+                            IsActive = true,
+                            IsDeleted = false,
                             Name = "Oasis Tropical 2l",
                             Price = 13.44m,
-                            Stock = 1000
+                            Stock = 1000,
+                            UpdateDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 

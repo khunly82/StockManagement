@@ -11,7 +11,7 @@ namespace StockManagement.Web.Models
         public string LastName { get; set; } = null!;
         [Display(Name = "Prénom")]
         public string FirstName { get; set; } = null!;
-        public string Email { get; set; } = null!;
+        public bool IsActive { get; set; }
 
         public CustomerViewModel()
         {
@@ -23,7 +23,7 @@ namespace StockManagement.Web.Models
             Reference = customer.Reference;
             LastName = customer.LastName;
             FirstName = customer.FirstName;
-            Email = customer.Email;
+            IsActive = customer.IsActive;
         }
     }
 }

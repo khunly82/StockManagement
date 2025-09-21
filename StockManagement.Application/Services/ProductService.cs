@@ -2,14 +2,13 @@
 using StockManagement.Application.Interfaces;
 using StockManagement.Domain.Entities;
 using StockManagement.Domain.Enums;
-using StockManagement.Domain.Views;
 using StockManagement.Infrastructure.Database;
 
 namespace StockManagement.Application.Services
 {
     public class ProductService(StockContext _dbContext): IProductService
     {
-        public List<Product> GetStockNMostSoldProductsLastNDays(int nbOfProducts, int days)
+        public List<Product> GetStockOfNMostSoldProductsLastNDays(int nbOfProducts, int days)
         {
             return [
                 .. _dbContext.Products

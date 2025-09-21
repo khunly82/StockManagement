@@ -14,6 +14,8 @@ namespace StockManagement.Infrastructure.Database.Configurations
             builder.Property(o => o.CustomerRef).IsUnicode(false).HasMaxLength(8).IsFixedLength();
 
             builder.HasOne(o => o.Customer).WithMany(c => c.Orders).HasForeignKey(o => o.CustomerRef);
+
+            builder.HasQueryFilter(o => !o.Customer.IsDeleted);
         }
     }
 }
